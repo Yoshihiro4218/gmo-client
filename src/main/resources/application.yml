@@ -1,1 +1,44 @@
+server:
+  forward-headers-strategy: native
 
+spring:
+#  datasource:
+#    url: jdbc:h2:mem:test
+#    driver-class-name: org.h2.Driver
+#    username: user
+#    password: password
+  thymeleaf:
+    prefix=classpath:/templates/:
+  security:
+    oauth2:
+      client:
+        registration:
+          gmo:
+            provider: gmo
+            clientName: GMO Aozora Bank Client
+            clientId: {your yahoo client id}
+            clientSecret: {your yahoo client secret}
+            redirectUriTemplate: '{baseUrl}/login/oauth2/code/{registrationId}'
+            authorizationGrantType: authorization_code
+            scope:
+              - openid
+              - profile
+              - email
+              - offline_access
+            response-type: code
+          provider:
+            gmo:
+              issue-uri: { issuer uri }
+#              authorizationUri: https://auth.login.yahoo.co.jp/yconnect/v2/authorization
+#              tokenUri: https://auth.login.yahoo.co.jp/yconnect/v2/token
+#              jwkSetUri: https://auth.login.yahoo.co.jp/yconnect/v2/jwks
+#              userInfoUri: https://userinfo.yahooapis.jp/yconnect/v2/attribute
+
+################################
+####   Custom Properties    ####
+################################
+
+auth2:
+  post-logout-redirect-uri: http://localhost:8080/login
+#  resource-server-uri
+#  base-uri
