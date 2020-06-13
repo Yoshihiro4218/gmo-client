@@ -15,24 +15,24 @@ spring:
         registration:
           gmo:
             provider: gmo
-            clientName: GMO Aozora Bank Client
-            clientId: {your yahoo client id}
-            clientSecret: {your yahoo client secret}
-            redirectUriTemplate: '{baseUrl}/login/oauth2/code/{registrationId}'
-            authorizationGrantType: authorization_code
+            client-name: GMO Aozora Bank Client
+            client-id: yOuRClineTId
+#            client-secret: clientSecret
+            redirect-uri-template: '{baseUrl}/login/oauth2/code/{registrationId}'
+            authorization-grant-type: authorization_code
             scope:
               - openid
               - profile
               - email
               - offline_access
             response-type: code
-          provider:
-            gmo:
-              issue-uri: { issuer uri }
-#              authorizationUri: https://auth.login.yahoo.co.jp/yconnect/v2/authorization
-#              tokenUri: https://auth.login.yahoo.co.jp/yconnect/v2/token
-#              jwkSetUri: https://auth.login.yahoo.co.jp/yconnect/v2/jwks
-#              userInfoUri: https://userinfo.yahooapis.jp/yconnect/v2/attribute
+        provider:
+          gmo:
+            issue-uri: https://api.gmo-aozora.com/ganb/api/simulator/oauth
+#            authorizationUri: https://api.gmo-aozora.com/ganb/api/simulator/oauth/auth/v1/authorization
+#            tokenUri: https://auth.login.yahoo.co.jp/yconnect/v2/token
+#            jwkSetUri: https://auth.login.yahoo.co.jp/yconnect/v2/jwks
+#            userInfoUri: https://userinfo.yahooapis.jp/yconnect/v2/attribute
 
 ################################
 ####   Custom Properties    ####
