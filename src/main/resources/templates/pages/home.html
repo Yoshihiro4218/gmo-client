@@ -4,9 +4,10 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
   <meta charset="utf-8">
-  <title>TestHome</title>
+  <link rel="shortcut icon" type="image/png" th:href="@{/favicon.ico}"/>
+  <title>ホーム | GMOネット銀行クライアント(Example)</title>
 </head>
 <body>
-<h1>Welcome to Home <span sec:authentication="name"></span></h1>
+<h1>Welcome to Home SUB: <span sec:authentication="name"></span></h1>
 </body>
 </html>

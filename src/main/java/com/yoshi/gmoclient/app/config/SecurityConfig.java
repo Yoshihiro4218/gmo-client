@@ -32,6 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .authorizeRequests()
             .antMatchers("/login**").permitAll()
+            .antMatchers( "/favicon.ico").permitAll()
             .anyRequest().authenticated();
 
         http
