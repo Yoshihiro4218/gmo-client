@@ -1,3 +1,4 @@
 /.idea/
 /gmoclient.iml
 /target/
+/docker/mysql/data/
