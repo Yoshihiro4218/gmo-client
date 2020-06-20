@@ -17,37 +17,53 @@ spring:
 #    password: password
   thymeleaf:
     prefix=classpath:/templates/:
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          gmo-client:
+#            provider: gmo
+#            client-name: gmo-client
+#            client-id: yOuRClineTId
+##            client-secret: clientSecret
+##            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}" # http://localhost:8080/gmo-client/login/oauth2/code/gmo-client
+#            authorization-grant-type: authorization_code
+#            scope:
+#              - openid
+#              - offline_access
+#              - private:account
+#              - private:virtual-account
+#            response-type: code
+#        provider:
+#          gmo:
+##            issue-uri: https://api.gmo-aozora.com/ganb/api/simulator/oauth
+##            authorizationUri: https://api.gmo-aozora.com/ganb/api/simulator/oauth/auth/v1/authorization
+##            tokenUri: https://auth.login.yahoo.co.jp/yconnect/v2/token
+##            jwkSetUri: https://auth.login.yahoo.co.jp/yconnect/v2/jwks
+##            userInfoUri: https://userinfo.yahooapis.jp/yconnect/v2/attribute
+#
+#            issue-uri: https://api.gmo-aozora.com/ganb/api/simulator/oauth
+#            authorization-uri: https://api.gmo-aozora.com/ganb/api/simulator/oauth/auth/v1/authorization
+#            token-uri: https://api.gmo-aozora.com/ganb/api/simulator/oauth/auth/v1/token
+#            user-info-uri: https://api.gmo-aozora.com/ganb/api/simulator/oauth/auth/v1/userinfo
+#            user-name-attribute: sub
+#            jwk-set-uri: https://api.gmo-aozora.com/ganb/api/simulator/oauth/auth/v1/.well-known/openid-configuration
+
   security:
     oauth2:
       client:
         registration:
           gmo-client:
-            provider: gmo
+            provider: google
             client-name: gmo-client
-            client-id: yOuRClineTId
-#            client-secret: clientSecret
-            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}" # http://localhost:8080/gmo-client/login/oauth2/code/gmo-client
+            client-id: 495924071172-khgp809j4r1ro3non4d7cmoee8j0ke0e.apps.googleusercontent.com
+            client-secret: PUZRMvvGkUrC_kqYG3iGJB7A
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
             authorization-grant-type: authorization_code
             scope:
               - openid
-              - offline_access
-              - private:account
-              - private:virtual-account
+              - email
             response-type: code
-        provider:
-          gmo:
-#            issue-uri: https://api.gmo-aozora.com/ganb/api/simulator/oauth
-#            authorizationUri: https://api.gmo-aozora.com/ganb/api/simulator/oauth/auth/v1/authorization
-#            tokenUri: https://auth.login.yahoo.co.jp/yconnect/v2/token
-#            jwkSetUri: https://auth.login.yahoo.co.jp/yconnect/v2/jwks
-#            userInfoUri: https://userinfo.yahooapis.jp/yconnect/v2/attribute
-
-            issue-uri: https://api.gmo-aozora.com/ganb/api/simulator/oauth
-            authorization-uri: https://api.gmo-aozora.com/ganb/api/simulator/oauth/auth/v1/authorization
-            token-uri: https://api.gmo-aozora.com/ganb/api/simulator/oauth/auth/v1/token
-            user-info-uri: https://api.gmo-aozora.com/ganb/api/simulator/oauth/auth/v1/userinfo
-            user-name-attribute: sub
-            jwk-set-uri: https://api.gmo-aozora.com/ganb/api/simulator/oauth/auth/v1/.well-known/openid-configuration
 
 ################################
 ####   Custom Properties    ####
