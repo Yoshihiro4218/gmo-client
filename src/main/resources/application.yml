@@ -1,24 +1,30 @@
 server:
   forward-headers-strategy: native
 
+logging:
+  level:
+    org:
+      apache:
+        http: DEBUG
+
 spring:
 #  datasource:
 #    url: jdbc:h2:mem:test
 #    driver-class-name: org.h2.Driver
 #    username: user
 #    password: password
-  thymeleaf:
-    prefix=classpath:/templates/:
+#  thymeleaf:
+#    prefix=classpath:/templates/:
   security:
     oauth2:
       client:
         registration:
-          gmo:
+          gmo-client:
             provider: gmo
-            client-name: GMO Aozora Bank Client
+            client-name: gmo-client
             client-id: yOuRClineTId
 #            client-secret: clientSecret
-            redirect-uri-template: '{baseUrl}/login/oauth2/code/{registrationId}'
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
             authorization-grant-type: authorization_code
             scope:
               - openid
@@ -28,11 +34,17 @@ spring:
             response-type: code
         provider:
           gmo:
-            issue-uri: https://api.gmo-aozora.com/ganb/api/simulator/oauth
+#            issue-uri: https://api.gmo-aozora.com/ganb/api/simulator/oauth
 #            authorizationUri: https://api.gmo-aozora.com/ganb/api/simulator/oauth/auth/v1/authorization
 #            tokenUri: https://auth.login.yahoo.co.jp/yconnect/v2/token
 #            jwkSetUri: https://auth.login.yahoo.co.jp/yconnect/v2/jwks
 #            userInfoUri: https://userinfo.yahooapis.jp/yconnect/v2/attribute
+
+            authorization-uri: https://api.gmo-aozora.com/ganb/api/simulator/oauth/auth/v1/authorization
+            token-uri: https://auth.login.yahoo.co.jp/yconnect/v2/token
+#            user-info-uri: https://graph.microsoft.com/v1.0/me
+#            user-name-attribute: sub
+#            jwk-set-uri: https://login.microsoftonline.com/common/discovery/keys
 
 ################################
 ####   Custom Properties    ####
