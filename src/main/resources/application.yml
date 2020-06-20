@@ -1,5 +1,7 @@
 server:
   forward-headers-strategy: native
+  servlet:
+    context-path: /gmo-client
 
 logging:
   level:
@@ -13,8 +15,8 @@ spring:
 #    driver-class-name: org.h2.Driver
 #    username: user
 #    password: password
-#  thymeleaf:
-#    prefix=classpath:/templates/:
+  thymeleaf:
+    prefix=classpath:/templates/:
   security:
     oauth2:
       client:
@@ -24,13 +26,13 @@ spring:
             client-name: gmo-client
             client-id: yOuRClineTId
 #            client-secret: clientSecret
-            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}" # http://localhost:8080/gmo-client/login/oauth2/code/gmo-client
             authorization-grant-type: authorization_code
             scope:
               - openid
-              - profile
-              - email
               - offline_access
+              - private:account
+              - private:virtual-account
             response-type: code
         provider:
           gmo:
@@ -40,11 +42,12 @@ spring:
 #            jwkSetUri: https://auth.login.yahoo.co.jp/yconnect/v2/jwks
 #            userInfoUri: https://userinfo.yahooapis.jp/yconnect/v2/attribute
 
+            issue-uri: https://api.gmo-aozora.com/ganb/api/simulator/oauth
             authorization-uri: https://api.gmo-aozora.com/ganb/api/simulator/oauth/auth/v1/authorization
-            token-uri: https://auth.login.yahoo.co.jp/yconnect/v2/token
-#            user-info-uri: https://graph.microsoft.com/v1.0/me
-#            user-name-attribute: sub
-#            jwk-set-uri: https://login.microsoftonline.com/common/discovery/keys
+            token-uri: https://api.gmo-aozora.com/ganb/api/simulator/oauth/auth/v1/token
+            user-info-uri: https://api.gmo-aozora.com/ganb/api/simulator/oauth/auth/v1/userinfo
+            user-name-attribute: sub
+            jwk-set-uri: https://api.gmo-aozora.com/ganb/api/simulator/oauth/auth/v1/.well-known/openid-configuration
 
 ################################
 ####   Custom Properties    ####
