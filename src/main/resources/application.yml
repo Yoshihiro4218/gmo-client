@@ -3,12 +3,6 @@ server:
   servlet:
     context-path: /gmo-client
 
-logging:
-  level:
-    org:
-      apache:
-        http: DEBUG
-
 spring:
 #  datasource:
 #    url: jdbc:h2:mem:test

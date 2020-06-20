@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="ja"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout/default}">
 <head>
   <meta charset="utf-8">
   <link rel="shortcut icon" type="image/png" th:href="@{/favicon.ico}"/>
   <title>TestLogin</title>
 </head>
 <body>
-<h1>Welcome to Login Page</h1>
+<div layout:fragment="mainContent">
+  <h1>Welcome to Login Page</h1>
+</div>
 </body>
 </html>
