@@ -22,7 +22,8 @@ public class RestTemplateConfig {
                     OAuth2AuthorizedClient client = clientService.loadAuthorizedClient(
                             token.getAuthorizedClientRegistrationId(),
                             token.getName());
-                    httpRequest.getHeaders().add(AUTHORIZATION, "Bearer " + client.getAccessToken().getTokenValue());
+//                    httpRequest.getHeaders().add(AUTHORIZATION, "Bearer " + client.getAccessToken().getTokenValue());
+                    httpRequest.getHeaders().add("x-access-token", "NTc4NzE5OTg3NTBhNGFiNjk1ZTE2MWMy");
                     return execution.execute(httpRequest, bytes);
                 }).build();
     }

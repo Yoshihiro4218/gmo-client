@@ -2,6 +2,7 @@ package com.yoshi.gmoclient.app.controller;
 
 import lombok.*;
 import lombok.extern.slf4j.*;
+import org.springframework.http.*;
 import org.springframework.security.oauth2.client.authentication.*;
 import org.springframework.stereotype.*;
 import org.springframework.ui.*;
@@ -20,6 +21,9 @@ public class HomeController {
         log.info("Token->{}", token);
         model.addAttribute("email", token.getPrincipal()
                                          .getAttributes().get("email"));
+        ResponseEntity<String> res = restTemplate.getForEntity("https://api.sunabar.gmo-aozora.com/personal/v1/accounts",
+                                                               String.class);
+        log.info("RES->{}", res);
         return "pages/home";
     }
 }
