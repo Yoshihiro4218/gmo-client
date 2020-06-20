@@ -10,7 +10,7 @@ spring:
 #    username: user
 #    password: password
   datasource:
-    url: jdbc:mysql://localhost:3306/gmo?useUnicode=true&userJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/gmo_localtest?useUnicode=true&userJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: user
     password: password
     driverClassName: com.mysql.jdbc.Driver
