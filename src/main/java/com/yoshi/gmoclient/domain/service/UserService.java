@@ -18,6 +18,10 @@ public class UserService {
         return userRepository.find(id);
     }
 
+    public Optional<User> findBySub(String sub) {
+        return userRepository.findBySub(sub);
+    }
+
     public int create(User user) {
         return userRepository.create(user);
     }

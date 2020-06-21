@@ -9,5 +9,7 @@ import java.util.*;
 public interface UserRepository {
     Optional<User> find(long id);
 
+    Optional<User> findBySub(String sub);
+
     int create(User user);
 }

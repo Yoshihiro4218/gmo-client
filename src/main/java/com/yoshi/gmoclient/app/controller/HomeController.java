@@ -1,5 +1,6 @@
 package com.yoshi.gmoclient.app.controller;
 
+import com.yoshi.gmoclient.app.coordinator.*;
 import lombok.*;
 import lombok.extern.slf4j.*;
 import org.springframework.http.*;
@@ -13,6 +14,7 @@ import org.springframework.web.client.*;
 @AllArgsConstructor
 @Slf4j
 public class HomeController {
+    private final HomeCoordinator homeCoordinator;
     private final RestTemplate restTemplate;
 
     @GetMapping("/home")
@@ -25,7 +27,7 @@ public class HomeController {
 //                                                               String.class);
 //        log.info("RES->{}", res);
         HttpHeaders headers = new HttpHeaders();
-        headers.set("x-access-token", "NTc4NzE5OTg3NTBhNGFiNjk1ZTE2MWMy");
+        headers.set("x-access-token", homeCoordinator.findGmoTokenBySub(token.getName()));
         HttpEntity<String> entity = new HttpEntity<>(headers);
         ResponseEntity<String> res =
                 restTemplate.exchange("https://api.sunabar.gmo-aozora.com/personal/v1/accounts",
