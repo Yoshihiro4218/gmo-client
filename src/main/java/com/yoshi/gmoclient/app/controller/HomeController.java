@@ -21,8 +21,15 @@ public class HomeController {
         log.info("Token->{}", token);
         model.addAttribute("email", token.getPrincipal()
                                          .getAttributes().get("email"));
-        ResponseEntity<String> res = restTemplate.getForEntity("https://api.sunabar.gmo-aozora.com/personal/v1/accounts",
-                                                               String.class);
+//        ResponseEntity<String> res = restTemplate.getForEntity("https://api.sunabar.gmo-aozora.com/personal/v1/accounts",
+//                                                               String.class);
+//        log.info("RES->{}", res);
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("x-access-token", "NTc4NzE5OTg3NTBhNGFiNjk1ZTE2MWMy");
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+        ResponseEntity<String> res =
+                restTemplate.exchange("https://api.sunabar.gmo-aozora.com/personal/v1/accounts",
+                                      HttpMethod.GET, entity, String.class);
         log.info("RES->{}", res);
         return "pages/home";
     }
